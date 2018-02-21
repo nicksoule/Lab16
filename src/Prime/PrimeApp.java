@@ -13,14 +13,12 @@ public class PrimeApp {
 		+ " order, from the first prime number on.");
 		do {
 			// gets user input
-			System.out.println("Which prime number are you looking for?");
-			int userNum = scan.nextInt();
+			int userNum = Validator.getInt(scan, "\nWhich prime number are you looking for?");
 			int primeNum = primeFinder(userNum);
 			System.out.println("The number " + userNum + " prime is " + primeNum + ".");
-			System.out.println("\nDo you want to find another prime number? (y/n)");
-			getCont = scan.next();
+			getCont = Validator.getContinue(scan, "\nDo you want to find another prime number? (y/n)", "y", "n");
 		} while (getCont.equalsIgnoreCase("y"));
-		System.out.println("Goodbye!");
+		System.out.println("\nGoodbye!");
 
 	}
 	// method that adds prime numbers to an arraylist and returns the number at the index userNum -1
